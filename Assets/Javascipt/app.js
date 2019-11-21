@@ -19,7 +19,7 @@ var questions = [{
     correctAnswer:" Allison <br> ",
     image: "Assets/Images/allison.gif"
 }, {
-    question: "When Michael Myers was a little boy what costumer did he wear for Halloween?",
+    question: "When Michael Myers was a little boy what costume did he wear for Halloween?",
     answers: ["Clown <br> ", "Hockey Player <br> ", "Pirate"],
     correctAnswer:"Clown <br> ",
     image: "Assets/Images/mmclown.gif"
@@ -194,5 +194,4 @@ var game = {
       $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counter-number'>25</span> Seconds</h2>");
       game.loadQuestion.bind(game)();
     });
-    // There's a bug with the timer at the very beginning but doesn't continue once moved on to the next question.
-    // Wasn't able to figure out how to fix that
+    
