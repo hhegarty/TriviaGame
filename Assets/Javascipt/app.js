@@ -1,47 +1,47 @@
 // Create Variables needed.....
 var card = $("#quiz-area");
-var countStartNumber = 30;
+var countStartNumber = 500;
 
 // Questions here.....
 var questions = [{
     question: "In 1969 Salem, Massachusets, Thackery finds his sister Emily at the Sanderson sisters cottage. The sisters use her for a spell to do what? ",
-    answers: ["Cure their colds", "Steal her youth", "Throw the party of the century", "Talk to the dead"],
-    correctAnswer: "Steal her youth",
+    answers: ["Cure their colds <br> ", "Steal her youth <br> ", "Throw the party of the century "],
+    correctAnswer: "Steal her youth <br> ",
     image: "Assets/Images/sisters.gif"
 }, {
     question: "The Sanderson sisters are infamous in Salem history. What are their names?",
-    answers: ["Paricia, Sarah, and Mildred", "Sarah, Winifred, and Jane", "Sarah, Winifred and Mary", "Megan, Willow and Sam"],
-    correctAnswer: "Sarah, Winifred and Mary",
+    answers: ["Paricia, Sarah, and Mildred <br> ", " Sarah, Winifred and Mary <br> ", " Megan, Willow and Sam "],
+    correctAnswer: " Sarah, Winifred and Mary <br> ",
     image: "Assets/Images/threesisters.gif"
 }, {
     question: "Who says the following quote 'Legend has it that the bones of a hundred children are burried within these walls'?",
-    answers: ["Max", "Binx", "Allison", "Sarah", "Dani"],
-    correctAnswer: "Allison",
+    answers: [" Max <br> ", " Allison <br> ", " Dani "],
+    correctAnswer:" Allison <br> ",
     image: "Assets/Images/allison.gif"
 }, {
     question: "When Michael Myers was a little boy what costumer did he wear for Halloween?",
-    answers: ["Clown", "Alien", "Hockey Player", "Pirate"],
-    correctAnswer: "Clown",
+    answers: ["Clown <br> ", "Hockey Player <br> ", "Pirate"],
+    correctAnswer:"Clown <br> ",
     image: "Assets/Images/mmclown.gif"
 }, {
     question: "What character's mask was Michael's made out of?",
-    answers: ["Norman Bates from Psycho", "Captain Kirk from Star Trek", "The Blob", "Alfred Hitchcock"],
-    correctAnswer: "Captain Kirk from Star Trek",
+    answers: ["Norman Bates from Psycho <br> ", "Captain Kirk from Star Trek <br> ", "Alfred Hitchcock"],
+    correctAnswer: "Captain Kirk from Star Trek <br> ",
     image: "Assets/Images/stab.gif"
 }, {
     question: "In Hannibal, the hit series that aired in 2013, What was the nickname of the first serial killer Lecter helped the FBI track down?",
-    answers: ["Slasher", "Beeman", "Buffalo Bill", "Tooth Fairy"],
-    correctAnswer: "Tooth Fairy",
+    answers: ["Beeman <br> ", " Buffalo Bill <br> ", " Tooth Fairy"],
+    correctAnswer: " Tooth Fairy",
     image: "Assets/Images/fbi.gif"
 }, {
     question: "Why is Francis Dolarhyde called the Tooth Fairy?",
-    answers: ["He sneaks into the rooms of young children", "Although he's not a cannibal he has an obsession with biting his victim with a special set of false teeth", "He pulls teeth from his victim's mouths and leaves silver dollars wedged in their jaws"],
-    correctAnswer: " Although he's not a cannibal he has an obsession with biting his victim with a special set of false teeth",
+    answers: ["He sneaks into the rooms of young children <br>", "He is not a cannibal but he has an obsession with biting his victim with a special set of false teeth <br> ", " He pulls teeth from his victim's mouths and leaves silver dollars wedged in their jaws "],
+    correctAnswer: " He's not a cannibal but he has an obsession with biting his victim with a special set of false teeth <br> ",
     image: "Assets/Images/bite.gif"
 }, {
     question: "What incident is the origin of Lecter's mental state and interest in cannibalism?",
-    answers: ["He saw a documentary about animals that sometimes eat their own to preserve scarce resources", "He saw the movie 'Cannibal Ferox' in 1983 which influenced him", "He witnessed his sister killed and eaten by Lithuanian militia at the end of World War 2 (and may have unknowingly eaten some of her himself"],
-    correctAnswer: "He witnessed his sister killed and eaten by Lithuanian militia at the end of World War 2 (and may have unknowingly eaten some of her himself",
+    answers: [" He saw a documentary about animals that sometimes eat their own to preserve scarce resources <br> ", " He saw the movie <i> Cannibal Ferox</i> in 1983 which influenced him <br> ", " He witnessed his sister killed and eaten by Lithuanian militia at the end of World War 2 (and may have unknowingly eaten some of her himself "],
+    correctAnswer:" He witnessed his sister killed and eaten by Lithuanian militia at the end of World War 2 (and may have unknowingly eaten some of her himself ",
     image: "Assets/Images/vegetarian.gif"
 }];
 
@@ -84,6 +84,8 @@ var game = {
         clearInterval(window.timer);
     
         $("#counter-number").text(this.counter);
+
+        // If user takes too long to answer notify time is up and display correct answer and corresponding image.....
     
         card.html("<h2>Out of Time!</h2>");
         card.append("<h3>The Correct Answer was: " + questions[this.currentQuestion].correctAnswer);
@@ -100,11 +102,15 @@ var game = {
       results: function() {
     
         clearInterval(window.timer);
+
+        // Inform user over all score.....
     
         card.html("<h2>All done, heres how you did!</h2>");
     
         $("#counter-number").text(this.counter);
-    
+
+    // Display correct and incorrect answer and encourage to try again.....
+
         card.append("<h3>Correct Answers: " + this.correct + "</h3>");
         card.append("<h3>Incorrect Answers: " + this.incorrect + "</h3>");
         card.append("<h3>Unanswered: " + (questions.length - (this.incorrect + this.correct)) + "</h3>");
@@ -123,13 +129,15 @@ var game = {
         }
       },
     // If incorrect notify and display correct answer.....
-    
+
       answeredIncorrectly: function() {
     
         this.incorrect++;
     
         clearInterval(window.timer);
-    
+
+    // Display no, what correct answer is and image to correct answer.....
+
         card.html("<h2>Nope!</h2>");
         card.append("<h3>The Correct Answer was: " + questions[this.currentQuestion].correctAnswer + "</h3>");
         card.append("<img src='" + questions[this.currentQuestion].image + "' />");
@@ -147,7 +155,9 @@ var game = {
         clearInterval(window.timer);
     
         this.correct++;
-    
+
+    // Display correct and corresponding image.....
+
         card.html("<h2>Correct!</h2>");
         card.append("<img src='" + questions[this.currentQuestion].image + "' />");
     
@@ -158,7 +168,9 @@ var game = {
           setTimeout(this.nextQuestion.bind(this), 3 * 1000);
         }
       },
+
     // Create a reset.....
+
       reset: function() {
         this.currentQuestion = 0;
         this.counter = countStartNumber;
@@ -177,7 +189,7 @@ var game = {
     });
     
     $(document).on("click", "#start", function() {
-      $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counter-number'>30</span> Seconds</h2>");
+      $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counter-number'>500</span> Seconds</h2>");
       game.loadQuestion.bind(game)();
     });
     
