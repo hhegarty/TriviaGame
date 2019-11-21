@@ -1,6 +1,6 @@
 // Create Variables needed.....
 var card = $("#quiz-area");
-var countStartNumber = 500;
+var countStartNumber = 25;
 
 // Questions here.....
 var questions = [{
@@ -29,7 +29,7 @@ var questions = [{
     correctAnswer: "Captain Kirk from Star Trek <br> ",
     image: "Assets/Images/stab.gif"
 }, {
-    question: "In Hannibal, the hit series that aired in 2013, What was the nickname of the first serial killer Lecter helped the FBI track down?",
+    question: "In Hannibal, the hit series that aired in 2013, what was the nickname of the first serial killer Lecter helped the FBI track down?",
     answers: ["Beeman <br> ", " Buffalo Bill <br> ", " Tooth Fairy"],
     correctAnswer: " Tooth Fairy",
     image: "Assets/Images/fbi.gif"
@@ -105,7 +105,7 @@ var game = {
 
         // Inform user over all score.....
     
-        card.html("<h2>All done, heres how you did!</h2>");
+        card.html("<h2>All done, here is how you did!</h2>");
     
         $("#counter-number").text(this.counter);
 
@@ -189,7 +189,7 @@ var game = {
     });
     
     $(document).on("click", "#start", function() {
-      $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counter-number'>500</span> Seconds</h2>");
+      $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counter-number'>25</span> Seconds</h2>");
       game.loadQuestion.bind(game)();
     });
     
