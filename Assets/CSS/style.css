@@ -10,15 +10,25 @@ body {
 
 #wrapper {
   width: 960px;
-  height: 95%;
+  height: 100%;
   box-sizing: border-box;
   margin: 2.5% auto;
-  background-color: #fff17a;
+  background-color: black;
 }
 
 #sub-wrapper {
   position: relative;
   top: 15%;
+  color: whitesmoke;
+}
+
+
+#quiz-area{
+    color:whitesmoke;
+    text-align: center;
+    line-height: normal;
+    white-space: normal;
+    cursor: pointer;
 }
 
 button {
@@ -38,7 +48,7 @@ img {
 
 h1 {
   padding-top: 2.5%;
-  font-size: 6.5em;
+  font-size: 4em;
   font-weight: bold;
   color: whitesmoke;
 }
@@ -58,6 +68,11 @@ h3 {
   background: whitesmoke;
   border: 2px solid black;
 }
+
+#start-over{
+    background-color: blanchedalmond;
+}
+
 
 button:hover {
   background: white;
