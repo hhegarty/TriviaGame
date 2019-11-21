@@ -64,6 +64,8 @@ var game = {
         }
     },
     loadQuestion: function () {
+        this.counter = window.countStartNumber;
+        $("#counter-number").text(this.counter);
         timer = setInterval(this.countdown.bind(this), 1000);
         card.html("<h2>" + questions[this.currentQuestion].question + "</h2>");
 
@@ -192,4 +194,5 @@ var game = {
       $("#sub-wrapper").prepend("<h2>Time Remaining: <span id='counter-number'>25</span> Seconds</h2>");
       game.loadQuestion.bind(game)();
     });
-    
+    // There's a bug with the timer at the very beginning but doesn't continue once moved on to the next question.
+    // Wasn't able to figure out how to fix that
