@@ -19,3 +19,5 @@ HTML  CSS Javascript jQuery
 
 Instructions:
     - Guess the correct answer in the amount of time allowed and have fun!
+
+https://hhegarty.github.io/TriviaGame/
